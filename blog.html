@@ -1,0 +1,401 @@
+<!-- 
+  @Author: Fengze Han
+  @Date:   2025-10-18
+  @Description: Technical Blog & Research Notes
+-->
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Blog - Fengze Han | Technical Notes & Research</title>
+  <meta name="description" content="Technical blog and research notes by Fengze Han - insights on autonomous systems, sensor fusion, and machine perception">
+  <meta name="author" content="Fengze Han">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="technical blog, autonomous driving, sensor fusion, SLAM, machine perception, 4D radar">
+
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" href="./images/robotics.ico" type="image/x-icon" />
+  
+  <!-- Academic styling enhancements -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    /* Blog-specific styles */
+    .blog-hero {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .blog-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .blog-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .blog-main {
+      padding: 6rem 0 4rem 0;
+      min-height: 100vh;
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .blog-post {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+    
+    .blog-post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    
+    .blog-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .blog-date {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    
+    .blog-category {
+      background: var(--background-light);
+      color: var(--text-primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-weight: 500;
+    }
+    
+    .blog-title {
+      margin-bottom: 1rem;
+    }
+    
+    .blog-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.4;
+      transition: color 0.3s ease;
+    }
+    
+    .blog-link:hover {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    .blog-excerpt {
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .blog-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .blog-tag {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .read-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .read-more-btn:hover {
+      color: var(--primary-color);
+      transform: translateX(3px);
+      text-decoration: none;
+    }
+    
+    .blog-categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding: 1rem 0;
+      margin-top: 1rem;
+    }
+    
+    .category-filter {
+      background: var(--background-light);
+      color: var(--text-primary);
+      padding: 0.75rem 1.25rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      text-align: center;
+      white-space: nowrap;
+      min-width: 140px;
+      display: inline-block;
+    }
+    
+    .category-filter:hover,
+    .category-filter.active {
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .blog-main {
+        padding: 5rem 0 4rem 0;
+      }
+      
+      .blog-categories {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        padding: 0.5rem;
+      }
+      
+      .category-filter {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+        min-width: auto;
+      }
+      
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .blog-post {
+        padding: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .blog-categories {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 0.5rem;
+      }
+      
+      .category-filter {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Header -->
+  <nav class="navigation">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">About</a>
+        <!-- <a href="cv.html" class="nav-link">CV</a> -->
+        <!-- <a href="blog.html" class="nav-link active">Blog</a> -->
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Hero Section -->
+  <!-- <section class="blog-hero">
+    <div class="container">
+      <h1><i class="fas fa-blog"></i> Technical Blog & Research Notes</h1>
+      <p>
+        Exploring the frontiers of autonomous systems, sensor fusion, and machine perception. 
+        Sharing insights, lessons learned, and technical deep-dives from the field.
+      </p>
+    </div>
+  </section> -->
+
+  <!-- Main Blog Content -->
+  <main class="blog-main">
+    <div class="container">
+      
+      <!-- Category Filters -->
+      <div class="blog-categories">
+        <a href="#" class="category-filter active" onclick="filterPosts('all')">All Posts</a>
+        <a href="#" class="category-filter" onclick="filterPosts('technical')">Technical Notes</a>
+        <a href="#" class="category-filter" onclick="filterPosts('algorithm')">Algorithm Design</a>
+        <a href="#" class="category-filter" onclick="filterPosts('research')">Research Notes</a>
+      </div>
+
+      <!-- Blog Posts Grid -->
+      <div class="blog-grid">
+        <article class="blog-post" data-category="technical">
+          <div class="blog-meta">
+            <span class="blog-date">Oct 2025</span>
+            <span class="blog-category">Technical Notes</span>
+          </div>
+          <h3 class="blog-title">
+            <a href="blog/4d-radar-processing.html" class="blog-link">
+              4D Radar Point Cloud Processing Techniques
+            </a>
+          </h3>
+          <p class="blog-excerpt">
+            Deep dive into advanced signal processing methods for automotive radar systems, 
+            including noise reduction and object classification strategies. Exploring the challenges 
+            of processing high-dimensional radar data in real-time autonomous driving applications.
+          </p>
+          <div class="blog-tags">
+            <span class="blog-tag">4D Radar</span>
+            <span class="blog-tag">Signal Processing</span>
+            <span class="blog-tag">Automotive</span>
+            <span class="blog-tag">Real-time</span>
+          </div>
+          <a href="blog/4d-radar-processing.html" class="read-more-btn">
+            <i class="fas fa-arrow-right"></i> Read More
+          </a>
+        </article>
+
+        <article class="blog-post" data-category="algorithm">
+          <div class="blog-meta">
+            <span class="blog-date">Sep 2025</span>
+            <span class="blog-category">Algorithm Design</span>
+          </div>
+          <h3 class="blog-title">
+            <a href="blog/sensor-fusion-architecture.html" class="blog-link">
+              Multi-Modal Sensor Fusion Architecture
+            </a>
+          </h3>
+          <p class="blog-excerpt">
+            Exploring the design patterns and challenges in fusing data from cameras, 
+            LiDAR, and radar for robust perception in autonomous driving systems. 
+            A comprehensive look at architectural decisions and trade-offs.
+          </p>
+          <div class="blog-tags">
+            <span class="blog-tag">Sensor Fusion</span>
+            <span class="blog-tag">Architecture</span>
+            <span class="blog-tag">Autonomous Driving</span>
+            <span class="blog-tag">Computer Vision</span>
+          </div>
+          <a href="blog/sensor-fusion-architecture.html" class="read-more-btn">
+            <i class="fas fa-arrow-right"></i> Read More
+          </a>
+        </article>
+
+        <article class="blog-post" data-category="research">
+          <div class="blog-meta">
+            <span class="blog-date">Aug 2025</span>
+            <span class="blog-category">Research Notes</span>
+          </div>
+          <h3 class="blog-title">
+            <a href="blog/slam-urban-environments.html" class="blog-link">
+              SLAM in Dynamic Urban Environments
+            </a>
+          </h3>
+          <p class="blog-excerpt">
+            Lessons learned from implementing robust localization systems 
+            in challenging urban scenarios with dynamic objects and GPS-denied areas. 
+            Insights from real-world deployment and performance optimization.
+          </p>
+          <div class="blog-tags">
+            <span class="blog-tag">SLAM</span>
+            <span class="blog-tag">Localization</span>
+            <span class="blog-tag">Urban Navigation</span>
+            <span class="blog-tag">GPS-denied</span>
+          </div>
+          <a href="blog/slam-urban-environments.html" class="read-more-btn">
+            <i class="fas fa-arrow-right"></i> Read More
+          </a>
+        </article>
+
+        <!-- Placeholder for future posts -->
+        <article class="blog-post" data-category="technical">
+          <div class="blog-meta">
+            <span class="blog-date">Coming Soon</span>
+            <span class="blog-category">Technical Notes</span>
+          </div>
+          <h3 class="blog-title">
+            <a href="#" class="blog-link">
+              Optimizing Deep Learning Models for Edge Deployment
+            </a>
+          </h3>
+          <p class="blog-excerpt">
+            Strategies and techniques for deploying complex neural networks on 
+            resource-constrained automotive hardware. From model compression 
+            to hardware-aware optimization.
+          </p>
+          <div class="blog-tags">
+            <span class="blog-tag">Deep Learning</span>
+            <span class="blog-tag">Edge Computing</span>
+            <span class="blog-tag">Optimization</span>
+            <span class="blog-tag">Hardware</span>
+          </div>
+          <a href="#" class="read-more-btn" style="opacity: 0.6; pointer-events: none;">
+            <i class="fas fa-clock"></i> Coming Soon
+          </a>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="academic-footer">
+    <div class="container">
+      <p>&copy; 2025 Fengze Han. All rights reserved.</p>
+      <p><em>Last updated: October 2025</em></p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for category filtering -->
+  <script>
+    function filterPosts(category) {
+      const posts = document.querySelectorAll('.blog-post');
+      const filters = document.querySelectorAll('.category-filter');
+      
+      // Update active filter
+      filters.forEach(filter => filter.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // Filter posts
+      posts.forEach(post => {
+        if (category === 'all' || post.dataset.category === category) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

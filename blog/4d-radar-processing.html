@@ -1,0 +1,306 @@
+<!-- 
+  @Author: Fengze Han
+  @Date:   2025-10-18 12:22:36
+  @Last Modified by:   Fengze Han
+  @Last Modified time: 2025-10-18 12:50:28
+-->
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>4D Radar Point Cloud Processing Techniques | Fengze Han</title>
+  <meta name="description" content="Deep dive into advanced signal processing methods for automotive radar systems, including noise reduction and object classification strategies.">
+  <meta name="author" content="Fengze Han">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+  <link rel="icon" href="../images/robotics.ico" type="image/x-icon" />
+  
+  <!-- Academic styling enhancements -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Syntax highlighting for code blocks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+
+<body>
+  <!-- Navigation Header -->
+  <nav class="navigation">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">
+          <i class="fas fa-home"></i> Home
+        </a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#blog" class="nav-link">Blog</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <!-- Blog Article -->
+    <article class="blog-article">
+      <div class="container">
+        <!-- Article Header -->
+        <header class="article-header">
+          <div class="breadcrumb">
+            <a href="../index.html" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../index.html#blog" class="breadcrumb-link">Blog</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">4D Radar Processing</span>
+          </div>
+          
+          <h1 class="article-title">4D Radar Point Cloud Processing Techniques</h1>
+          
+          <div class="article-meta">
+            <div class="meta-item">
+              <i class="fas fa-calendar-alt"></i>
+              <span>October 15, 2025</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-user"></i>
+              <span>Fengze Han</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <span>8 min read</span>
+            </div>
+          </div>
+          
+          <div class="article-tags">
+            <span class="article-tag">4D Radar</span>
+            <span class="article-tag">Signal Processing</span>
+            <span class="article-tag">Automotive</span>
+          </div>
+        </header>
+
+        <!-- Article Content -->
+        <div class="article-content">
+          <!-- Abstract Section -->
+          <div class="article-abstract">
+            <h2 class="abstract-title">Abstract</h2>
+            <p class="abstract-text">
+              This technical article presents an overview of signal processing techniques for 4D imaging radar systems
+              in automotive applications. We discuss the complete processing pipeline from raw radar data to object
+              detection, including Range-Doppler processing, angle estimation, noise reduction strategies, and
+              object classification methods. The paper emphasizes practical considerations for real-time implementation
+              in autonomous driving systems, highlighting computational optimization techniques and performance trade-offs.
+              Key contributions include analysis of noise reduction approaches combining adaptive filtering,
+              temporal tracking, and machine learning-based methods, as well as discussion of multi-modal integration
+              strategies for robust perception in challenging environmental conditions.
+            </p>
+            <div class="keywords-section">
+              <strong>Keywords:</strong> 4D Radar, Signal Processing, Autonomous Driving, Sensor Fusion, Object Detection,
+              Real-time Systems, Automotive Perception
+            </div>
+          </div>
+
+          <div class="article-intro">
+            <p class="lead-text">
+              In the rapidly evolving landscape of autonomous driving, 4D millimeter-wave radar has emerged as a critical sensor modality. Unlike traditional 3D radar, 4D radar provides not only range, azimuth, and elevation information, but also velocity data for each detection point, creating rich point cloud data that requires sophisticated processing techniques.
+            </p>
+          </div>
+
+          <section class="content-section">
+            <h2 id="introduction">Introduction to 4D Radar</h2>
+            <p>
+              4D radar systems represent a significant advancement in automotive sensing technology. By leveraging advanced antenna arrays and signal processing algorithms, these systems can generate dense point clouds that rival LiDAR in certain scenarios while maintaining the all-weather reliability that radar is known for.
+            </p>
+            
+            <p>
+              The key advantages of 4D radar include:
+            </p>
+            <ul>
+              <li><strong>Weather Independence:</strong> Performs consistently in rain, snow, and fog</li>
+              <li><strong>Velocity Information:</strong> Direct measurement of target velocity</li>
+              <li><strong>Long Range:</strong> Detection capabilities up to 300+ meters</li>
+              <li><strong>Cost Effectiveness:</strong> Lower cost compared to high-resolution LiDAR</li>
+            </ul>
+          </section>
+
+          <section class="content-section">
+            <h2 id="signal-processing">Signal Processing Pipeline</h2>
+            <p>
+              The processing of 4D radar data involves several critical stages, each designed to extract meaningful information from the raw radar returns while minimizing false detections and noise.
+            </p>
+
+            <h3>1. Range-Doppler Processing</h3>
+            <p>
+              The first stage involves applying a 2D FFT to the received signal to generate the Range-Doppler map. This process separates targets by their range and radial velocity:
+            </p>
+            
+            <div class="code-block">
+              <pre><code class="language-python"># Simplified Range-Doppler processing
+import numpy as np
+
+def range_doppler_processing(raw_data, num_samples, num_chirps):
+    """
+    Process raw radar data to generate Range-Doppler map
+    """
+    # Apply window function to reduce sidelobes
+    windowed_data = raw_data * np.hanning(num_samples)
+    
+    # Range FFT
+    range_fft = np.fft.fft(windowed_data, axis=0)
+    
+    # Doppler FFT
+    rd_map = np.fft.fft(range_fft, axis=1)
+    
+    return np.abs(rd_map)
+</code></pre>
+            </div>
+
+            <h3>2. Angle Estimation</h3>
+            <p>
+              Modern 4D radar systems employ multiple receive antennas to estimate the angle of arrival (AoA) for detected targets. This is typically achieved using techniques such as:
+            </p>
+            <ul>
+              <li><strong>Digital Beamforming (DBF)</strong></li>
+              <li><strong>Multiple Signal Classification (MUSIC)</strong></li>
+              <li><strong>Estimation of Signal Parameters via Rotational Invariance Techniques (ESPRIT)</strong></li>
+            </ul>
+          </section>
+
+          <section class="content-section">
+            <h2 id="noise-reduction">Noise Reduction Techniques</h2>
+            <p>
+              Effective noise reduction is crucial for reliable object detection and classification. Several approaches have proven effective in automotive radar applications:
+            </p>
+
+            <div class="technique-grid">
+              <div class="technique-item">
+                <h4><i class="fas fa-filter"></i> Adaptive Filtering</h4>
+                <p>Dynamic threshold adjustment based on local noise statistics and environmental conditions.</p>
+              </div>
+              <div class="technique-item">
+                <h4><i class="fas fa-chart-line"></i> Temporal Tracking</h4>
+                <p>Leveraging object persistence across multiple frames to distinguish real targets from noise.</p>
+              </div>
+              <div class="technique-item">
+                <h4><i class="fas fa-brain"></i> ML-Based Denoising</h4>
+                <p>Neural networks trained to recognize and suppress various types of radar artifacts and interference.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-section">
+            <h2 id="object-classification">Object Classification Strategies</h2>
+            <p>
+              Once clean point clouds are obtained, the next challenge is classifying detected objects into meaningful categories such as vehicles, pedestrians, cyclists, and static infrastructure.
+            </p>
+
+            <p>
+              Our approach combines several complementary techniques:
+            </p>
+
+            <ol>
+              <li><strong>Geometric Features:</strong> Size, shape, and orientation analysis</li>
+              <li><strong>Kinematic Properties:</strong> Velocity patterns and acceleration profiles</li>
+              <li><strong>Radar Cross Section (RCS):</strong> Reflectivity characteristics</li>
+              <li><strong>Temporal Behavior:</strong> Movement patterns over time</li>
+            </ol>
+          </section>
+
+          <section class="content-section">
+            <h2 id="performance-optimization">Performance Optimization</h2>
+            <p>
+              Real-time processing requirements in automotive applications demand careful optimization of computational resources. Key strategies include:
+            </p>
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-rocket"></i> Computational Efficiency</h4>
+              <ul>
+                <li>GPU acceleration for parallel FFT operations</li>
+                <li>Fixed-point arithmetic for embedded implementations</li>
+                <li>Algorithmic optimizations for reduced complexity</li>
+                <li>Memory management for streaming data processing</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="content-section">
+            <h2 id="conclusion">Conclusion and Future Directions</h2>
+            <p>
+              4D radar technology continues to evolve rapidly, with ongoing research focusing on improved resolution, enhanced object classification accuracy, and better integration with other sensor modalities. As we advance toward higher levels of vehicle autonomy, the role of sophisticated radar processing becomes increasingly critical.
+            </p>
+
+            <p>
+              The techniques discussed in this article represent current best practices, but the field remains dynamic with new developments emerging regularly. Future work will likely focus on AI-driven processing pipelines and more sophisticated sensor fusion architectures.
+            </p>
+          </section>
+
+          <!-- References Section -->
+          <section class="content-section references-section">
+            <h2 id="references"><i class="fas fa-book"></i> References & Further Reading</h2>
+            <ol class="references-list">
+              <li>
+                Richards, M. A., Scheer, J. A., & Holm, W. A. (2010). <em>Principles of Modern Radar: Basic Principles</em>.
+                SciTech Publishing. DOI: 10.1049/SBRA021E
+              </li>
+              <li>
+                Patole, S. M., Torlak, M., Wang, D., & Ali, M. (2017). Automotive radars: A review of signal processing techniques.
+                <em>IEEE Signal Processing Magazine</em>, 34(2), 22-35. DOI: 10.1109/MSP.2016.2628914
+              </li>
+              <li>
+                Dickmann, J., Appenrodt, N., Klappstein, J., et al. (2016). Making Bertha see even more: Radar contribution.
+                <em>IEEE Access</em>, 4, 3233-3258. DOI: 10.1109/ACCESS.2016.2578039
+              </li>
+              <li>
+                Meyer, M., & Kuschk, G. (2019). Automotive radar dataset for deep learning based 3D object detection.
+                <em>Proceedings of IEEE RadarConf</em>, 1-6. DOI: 10.1109/RADAR.2019.8835775
+              </li>
+              <li>
+                Schumann, O., Hahn, M., Dickmann, J., & Wöhler, C. (2021). Semantic segmentation on radar point clouds.
+                <em>IEEE International Conference on Intelligent Transportation Systems</em>, 2577-2584.
+                DOI: 10.1109/ITSC48978.2021.9564894
+              </li>
+            </ol>
+            <div class="note-box">
+              <p><strong>Note:</strong> This article represents a synthesis of industry best practices and ongoing research.
+              For the most current developments in 4D radar processing, readers are encouraged to consult recent conference
+              proceedings from IEEE RadarConf, ICASSP, and IV symposia.</p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Article Footer -->
+        <footer class="article-footer">
+          <div class="author-info">
+            <img src="../images/personal.jpg" alt="Fengze Han" class="author-avatar">
+            <div class="author-details">
+              <h4 class="author-name">Fengze Han, M.Sc.</h4>
+              <p class="author-bio">
+                Perception Lead at Altos Radar Inc., specializing in 4D imaging radar perception, multi-modal sensor fusion,
+                and real-time algorithms for autonomous driving systems.
+              </p>
+              <div class="author-links">
+                <a href="../index.html#contact" class="author-link">
+                  <i class="fas fa-envelope"></i> Contact
+                </a>
+                <a href="https://www.linkedin.com/in/fengzehan/" class="author-link">
+                  <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-navigation">
+            <a href="../index.html#blog" class="back-to-blog">
+              <i class="fas fa-arrow-left"></i> Back to Blog
+            </a>
+          </div>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <!-- Syntax highlighting script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+
+</html>
