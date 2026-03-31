@@ -2171,7 +2171,7 @@ html {
   display: none;
 }
 
-/* Academic Interests Card - Unified Design (moved to left column under Biography) */
+/* Academic Interests Card - Horizontal Layout (side-by-side sections) */
 .profile-info .interests-card {
   margin-top: 2.5rem;
   width: 100%;
@@ -2179,9 +2179,11 @@ html {
   background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(247,250,252,0.98));
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 1.75rem 1.5rem;
+  padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   transition: all 0.3s ease;
+  display: flex;
+  gap: 2rem;
 }
 
 .profile-info .interests-card:hover {
@@ -2191,13 +2193,13 @@ html {
 
 .research-interests-section,
 .personal-interests-section {
-  margin-bottom: 1.5rem;
+  flex: 1;
+  margin-bottom: 0;
 }
 
 .personal-interests-section {
-  margin-bottom: 0;
-  padding-top: 1.5rem;
-  border-top: 1px dashed rgba(0,0,0,0.08);
+  padding-left: 2rem;
+  border-left: 1px solid rgba(0,0,0,0.1);
 }
 
 .interest-section-title {
@@ -2554,6 +2556,19 @@ html {
   .contact-cards {
     grid-template-columns: 1fr;
     gap: 0.875rem;
+  }
+
+  /* Stack interests sections vertically on mobile */
+  .profile-info .interests-card {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .personal-interests-section {
+    padding-left: 0;
+    padding-top: 1.5rem;
+    border-left: none;
+    border-top: 1px dashed rgba(0,0,0,0.08);
   }
 }
 
