@@ -2799,3 +2799,256 @@ html {
     font-size: 0.85rem;
   }
 }
+
+/* ===================================
+   Theme Toggle Button
+   =================================== */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.theme-toggle svg {
+  transition: all 0.3s ease;
+}
+
+/* Show sun icon in light mode, moon in dark mode */
+[data-theme="light"] .moon-icon {
+  display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+  display: none;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===================================
+   Dark Theme Colors
+   =================================== */
+
+[data-theme="dark"] {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .navigation {
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .nav-link {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: #fff;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .hero-section {
+  background: #0f172a;
+}
+
+[data-theme="dark"] .name-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .section-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .bio-text {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .bio-text a {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .bio-text a:hover {
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .interests-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .interest-section-title {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .interests-list-compact li {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .image-caption {
+  color: #94a3b8;
+}
+
+/* Blog Section Dark Mode */
+[data-theme="dark"] .blog-section {
+  background: #0f172a;
+}
+
+[data-theme="dark"] .blog-post {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .blog-post:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .blog-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .blog-link {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .blog-link:hover {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .blog-excerpt {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .blog-date,
+[data-theme="dark"] .blog-category {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .blog-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .blog-tag:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .read-more-btn {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .read-more-btn:hover {
+  color: #93c5fd;
+}
+
+/* News Section Dark Mode */
+[data-theme="dark"] .news-section {
+  background: #1e293b !important;
+}
+
+[data-theme="dark"] .news-item {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .news-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .news-description {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .news-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .news-tag:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+}
+
+/* Contact Section Dark Mode */
+[data-theme="dark"] .contact-section {
+  background: #0f172a;
+}
+
+[data-theme="dark"] .contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .contact-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .card-title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .card-link {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .card-link:hover {
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .card-text {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .card-icon svg {
+  stroke: #cbd5e1;
+}
+
+/* Footer Dark Mode */
+[data-theme="dark"] .academic-footer {
+  background: #1e293b;
+  border-top-color: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+}
+
+/* Responsive adjustments for theme toggle */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .theme-toggle {
+    order: 3;
+    margin-left: 0;
+  }
+}
