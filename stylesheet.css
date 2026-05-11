@@ -2272,13 +2272,19 @@ html {
   font-weight: 400;
 }
 
-/* Beautiful Contact Cards Section - Single Row */
+/* Beautiful Contact Cards Section - 3 x 2 on desktop */
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   max-width: 100%;
   margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .contact-card {
