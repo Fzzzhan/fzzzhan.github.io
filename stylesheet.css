@@ -2366,6 +2366,7 @@ html {
 
 .card-icon svg {
   stroke: currentColor;
+  fill: currentColor;
   width: 16px;
   height: 16px;
 }
@@ -2441,6 +2442,72 @@ html {
   color: var(--text-muted);
   font-weight: 300;
   font-size: 0.85rem;
+}
+
+/* WeChat Button & QR Popup */
+.wechat-btn-container {
+  position: relative;
+}
+
+.wechat-btn svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.wechat-qr-popup {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 180px;
+}
+
+.wechat-qr-popup::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  background: var(--background-white);
+  border-left: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  transform: rotate(45deg);
+}
+
+.wechat-btn-container:hover .wechat-qr-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.qr-code-popup {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  display: block;
+}
+
+.qr-popup-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* Simplified bio section */
@@ -3062,6 +3129,28 @@ html {
 
 [data-theme="dark"] .card-icon svg {
   stroke: #cbd5e1;
+  fill: #cbd5e1;
+}
+
+/* WeChat Button Dark Mode */
+[data-theme="dark"] .wechat-qr-popup {
+  background: rgba(30, 41, 59, 0.98);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .wechat-qr-popup::before {
+  background: rgba(30, 41, 59, 0.98);
+  border-left-color: rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .qr-code-popup {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .qr-popup-text {
+  color: #cbd5e1;
 }
 
 /* Footer Dark Mode */
