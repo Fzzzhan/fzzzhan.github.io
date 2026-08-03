@@ -218,8 +218,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Navigation Action Buttons */
 .nav-action-buttons {
   display: flex;
+  flex-direction: row;
   gap: 0.75rem;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .nav-action-buttons .action-btn {
@@ -229,10 +231,12 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.5rem;
   border-radius: 8px;
   transition: all 0.3s ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
+  width: auto;
+  height: auto;
 }
 
 .nav-action-buttons .action-btn:hover {
@@ -240,9 +244,14 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-color);
 }
 
-/* WeChat button in navigation */
+.nav-action-buttons .action-btn svg {
+  transition: all 0.3s ease;
+}
+
+/* WeChat button in navigation - Fix display */
 .nav-action-buttons .wechat-btn-container {
   position: relative;
+  display: inline-block;
 }
 
 .nav-action-buttons .wechat-qr-popup {
@@ -2947,19 +2956,12 @@ html {
 }
 
 /* ===================================
-   Action Buttons (Fixed Position)
+   Action Buttons (OLD - REMOVED)
    =================================== */
 
-.action-buttons {
-  position: fixed;
-  top: 1.5rem;
-  right: 2rem;
-  z-index: 1001;
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
+/* Moved to navigation bar - see .nav-action-buttons */
 
+/* OLD action-btn styles - commented out as buttons moved to navigation
 .action-btn {
   display: flex;
   align-items: center;
@@ -2981,10 +2983,11 @@ html {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+*/
 
-.action-btn svg {
+/* .action-btn svg {
   transition: all 0.3s ease;
-}
+} */
 
 /* GitHub Link Button */
 .github-link-btn {
