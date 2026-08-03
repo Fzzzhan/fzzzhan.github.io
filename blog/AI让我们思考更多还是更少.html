@@ -2,15 +2,15 @@
   @Author: Fengze Han
   @Date:   2026-07-19 15:15:34
   @Last Modified by:   Fengze Han
-  @Last Modified time: 2026-08-03 11:51:38
+  @Last Modified time: 2026-08-03 15:56:31
 -->
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>AI 让我们思考得更多了，还是更少了？ | Fengze Han</title>
-  <meta name="description" content="反思AI工具如何改变开发者的工作方式，以及我们在这个过程中是否失去了什么。">
+  <title>AI 让我们思考得更多了，还是更少了？ / Are We Thinking More or Less with AI? | Fengze Han</title>
+  <meta name="description" content="反思AI工具如何改变开发者的工作方式，以及我们在这个过程中是否失去了什么。/ Reflecting on how AI tools are changing the way developers work, and what we might be losing in the process.">
   <meta name="author" content="Fengze Han">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,6 +26,9 @@
 
   <!-- Cyberpunk Theme -->
   <link rel="stylesheet" type="text/css" href="../cyberpunk-blog.css">
+
+  <!-- Bilingual Blog Styles -->
+  <link rel="stylesheet" type="text/css" href="../bilingual-blog.css">
 </head>
 
 <body>
@@ -57,7 +60,10 @@
             <span class="breadcrumb-current">AI 让我们思考得更多了，还是更少了？</span>
           </div>
 
-          <h1 class="article-title">AI 让我们思考得更多了，还是更少了？</h1>
+          <h1 class="article-title">
+            <span class="title-chinese">AI 让我们思考得更多了，还是更少了？</span>
+            <span class="title-english">Are We Thinking More or Less with AI?</span>
+          </h1>
 
           <div class="article-meta">
             <div class="meta-item">
@@ -84,88 +90,123 @@
         <!-- Article Content -->
         <div class="article-content">
           <div class="article-intro">
-            <p class="lead-text">
-              当AI工具越来越深入到日常开发流程，作为开发者的我们是在更深入地思考，还是在逐渐失去对代码的掌控感？
+            <p class="lead-text bilingual">
+              <span class="text-zh">当AI工具越来越深入到日常开发流程，作为开发者的我们是在更深入地思考，还是在逐渐失去对代码的掌控感？</span>
+              <span class="text-en">As AI tools become increasingly integrated into our daily development workflow, are we as developers thinking more deeply, or are we gradually losing our grasp on the code?</span>
             </p>
           </div>
 
           <section class="content-section">
-            <p>
-              我第一次真正把 AI 引入开发流程，是在 2023 年中开始在VS Code使用 GitHub Copilot。那时候的 AI 编程还十分「单纯」。Copilot 更像是一个聪明的自动补全工具：我在 VS Code 里写下注释，或者写出一部分流程代码，它负责把那些机械、重复的实现细节补齐。开发的节奏并没有改变，我依然把注意力放在代码本身，只不过敲键盘的次数变少了。
+            <p class="bilingual">
+              <span class="text-zh">我第一次真正把 AI 引入开发流程，是在 2023 年中开始在VS Code使用 GitHub Copilot。那时候的 AI 编程还十分「单纯」。Copilot 更像是一个聪明的自动补全工具：我在 VS Code 里写下注释，或者写出一部分流程代码，它负责把那些机械、重复的实现细节补齐。开发的节奏并没有改变，我依然把注意力放在代码本身，只不过敲键盘的次数变少了。</span>
+              <span class="text-en">I first truly integrated AI into my development workflow in mid-2023 when I started using GitHub Copilot in VS Code. AI programming was quite "pure" back then. Copilot was more like an intelligent auto-completion tool: I would write comments or part of the procedural code in VS Code, and it would fill in those mechanical, repetitive implementation details. The rhythm of development hadn't changed—I still focused on the code itself, just with fewer keystrokes.</span>
             </p>
-            <p>
-              后来，大语言模型爆发了。Claude Code、Cursor、Copilot Chat……越来越多的工具开始把 Chat 作为开发的中心，而不是编辑器。你的光标可以长时间停留在聊天窗口，而不是代码窗口；甚至纯 CLI 的交互方式也越来越流行。
+            <p class="bilingual">
+              <span class="text-zh">后来，大语言模型爆发了。Claude Code、Cursor、Copilot Chat……越来越多的工具开始把 Chat 作为开发的中心，而不是编辑器。你的光标可以长时间停留在聊天窗口，而不是代码窗口；甚至纯 CLI 的交互方式也越来越流行。</span>
+              <span class="text-en">Then came the explosion of large language models. Claude Code, Cursor, Copilot Chat... More and more tools began placing Chat at the center of development, rather than the editor. Your cursor could stay in the chat window for extended periods instead of the code window; even pure CLI interactions became increasingly popular.</span>
             </p>
-            <p>
-              不知不觉，我的工作方式发生了变化。过去，我是一边阅读代码、一边思考、一边实现；现在，我更多的时候是在终端里看着 AI 输出一长串 Chain of Thought，等待它完成分析、生成代码、运行测试，然后再决定是否允许它继续执行下一步。
+            <p class="bilingual">
+              <span class="text-zh">不知不觉，我的工作方式发生了变化。过去，我是一边阅读代码、一边思考、一边实现；现在，我更多的时候是在终端里看着 AI 输出一长串 Chain of Thought，等待它完成分析、生成代码、运行测试，然后再决定是否允许它继续执行下一步。</span>
+              <span class="text-en">Unconsciously, my way of working has changed. Before, I would read code, think, and implement simultaneously; now, I find myself more often watching AI output long chains of thought in the terminal, waiting for it to complete its analysis, generate code, run tests, and then deciding whether to allow it to proceed to the next step.</span>
             </p>
-            <p>
-              这让我开始思考一个问题：<strong>我在开发过程中，到底是思考得更多了，还是更少了？</strong>或者说，<strong>编程真的是一个纯粹结果导向的工作吗？</strong>
-            </p>
-          </section>
-
-          <section class="content-section">
-            <h2>碎片化的时间</h2>
-            <p>
-              我发现，使用 Claude Code 开发之后，我的时间被切割得异常碎片化。理论上，我们可以通过完善的测试、清晰的任务拆分，把一个需求完整地交给模型执行，让它自主完成开发和验证。但现实往往没有这么理想。
-            </p>
-            <p>
-              一方面，我始终不敢完全信任模型，不愿意直接开启 <code>skip permission</code>，让它拥有无限制的执行权限。另一方面，我也很难像那些流行的方法论所倡导的那样，在设计阶段就规划出足够完善的测试，让模型能够在一个封闭的反馈循环里自由开发。
-            </p>
-            <p>
-              于是，我只能守在终端前。AI 每执行一步，我都需要随时准备按下那个 <strong>Allow</strong>。
-            </p>
-            <p>
-              更有意思的是，大多数时候，模型真正花费时间的并不是写代码，而是在思考、分析、搜索上下文。而在它思考的时候，人反而变成了那个最无所事事的存在。你只能盯着黑漆漆的命令行，看着不断滚动的日志；或者打开另一个 Terminal，尝试处理一些别的工作；又或者刷一会网页，等待它结束。
-            </p>
-            <p>
-              这种等待不是休息，而是一种不断被打断的状态。它让注意力始终无法沉浸，也越来越难进入过去那种持续数小时的心流。
+            <p class="bilingual">
+              <span class="text-zh">这让我开始思考一个问题：<strong>我在开发过程中，到底是思考得更多了，还是更少了？</strong>或者说，<strong>编程真的是一个纯粹结果导向的工作吗？</strong></span>
+              <span class="text-en">This made me start pondering a question: <strong>Am I thinking more or less during development?</strong> Or rather, <strong>Is programming truly a purely result-oriented job?</strong></span>
             </p>
           </section>
 
           <section class="content-section">
-            <h2>失去的掌控感</h2>
-            <p>
-              更让我沮丧的是，我开始逐渐失去对代码的掌控感。过去，当我自己实现一个模块时，即使整个项目有数万行代码，我依然能够快速定位问题，因为这些代码是我一行一行写出来的，它们在我的脑海里有一张完整的地图。
+            <h2 class="bilingual-heading">
+              <span class="text-zh">碎片化的时间</span>
+              <span class="text-en">Fragmented Time</span>
+            </h2>
+            <p class="bilingual">
+              <span class="text-zh">我发现，使用 Claude Code 开发之后，我的时间被切割得异常碎片化。理论上，我们可以通过完善的测试、清晰的任务拆分，把一个需求完整地交给模型执行，让它自主完成开发和验证。但现实往往没有这么理想。</span>
+              <span class="text-en">I've noticed that after using Claude Code for development, my time has become extremely fragmented. In theory, through comprehensive testing and clear task decomposition, we could hand over a complete requirement to the model for autonomous development and verification. But reality is rarely this ideal.</span>
             </p>
-            <p>
-              而现在，我越来越频繁地阅读的是 AI 写出的代码。我知道它最终实现了什么，甚至某种程度上不完全理解它为什么会这样实现。我了解的是结果，而不是过程。
+            <p class="bilingual">
+              <span class="text-zh">一方面，我始终不敢完全信任模型，不愿意直接开启 <code>skip permission</code>，让它拥有无限制的执行权限。另一方面，我也很难像那些流行的方法论所倡导的那样，在设计阶段就规划出足够完善的测试，让模型能够在一个封闭的反馈循环里自由开发。</span>
+              <span class="text-en">On one hand, I never dare to fully trust the model, unwilling to enable <code>skip permission</code> and grant it unrestricted execution rights. On the other hand, I find it difficult to plan sufficiently comprehensive tests during the design phase, as popular methodologies advocate, to allow the model to develop freely within a closed feedback loop.</span>
             </p>
-            <p>
-              当 Bug 出现时，我需要重新阅读一遍那些自己从未真正参与构建的代码。这种感觉很奇怪——代码属于我的仓库，却并不真正属于我的认知。曾经那种在几万行代码中一眼锁定问题的快感，也慢慢消失了。因为，你已经没有那么了解这份代码了。
+            <p class="bilingual">
+              <span class="text-zh">于是，我只能守在终端前。AI 每执行一步，我都需要随时准备按下那个 <strong>Allow</strong>。</span>
+              <span class="text-en">So I'm left watching the terminal. Every step the AI takes, I need to be ready to press that <strong>Allow</strong> button.</span>
             </p>
-          </section>
-
-          <section class="content-section">
-            <h2>时间都去哪了</h2>
-            <p>
-              有一段时间，我甚至写了一个命令行小工具voidtally，专门统计自己每天有多少时间浪费在「等待 AI 思考」。结果远比我想象中夸张。那些几分钟、十几分钟的等待，被切碎之后散落在一天里，最后竟然累积成了相当可观的时间。
+            <p class="bilingual">
+              <span class="text-zh">更有意思的是，大多数时候，模型真正花费时间的并不是写代码，而是在思考、分析、搜索上下文。而在它思考的时候，人反而变成了那个最无所事事的存在。你只能盯着黑漆漆的命令行，看着不断滚动的日志；或者打开另一个 Terminal，尝试处理一些别的工作；又或者刷一会网页，等待它结束。</span>
+              <span class="text-en">What's more interesting is that most of the time, what the model actually spends time on isn't writing code, but thinking, analyzing, and searching through context. And while it thinks, the human becomes the most idle entity. You can only stare at the dark command line, watching logs scroll by; or open another Terminal to try handling other work; or browse some web pages, waiting for it to finish.</span>
             </p>
-            <p>
-              当然，这并不意味着 AI 降低了我的开发效率。很多原本需要几小时才能完成的工作，现在可能十几分钟就结束了。真正的问题在于，它改变了开发者工作的节奏。
-            </p>
-            <p>
-              过去是人持续思考、机器执行；现在变成了机器持续思考、人不断等待。这种角色的互换，远没有我最初想象得那么舒服。
-            </p>
-          </section>
-
-          <section class="content-section">
-            <h2>回归「古法编程」？</h2>
-            <p>
-              这也让我开始重新思考一个有些「逆潮流」的问题：我是不是应该在某种程度上回归一点「古法编程」？
-            </p>
-            <p>
-              这并不代表拒绝 AI，也不是盼望重新回到一行一行手写所有代码的时代。而是在那些真正重要的地方——例如算法设计、核心计算逻辑、系统架构——重新把思考权掌握在自己手里。尤其对于算法工程师来说，一个看似微不足道的计算细节，可能就会让整个算法最终结果产生巨大的偏差。这些地方，我越来越希望代码来自自己的理解，而不是模型的一次采样。
-            </p>
-            <p>
-              有时候我甚至觉得，自己正在慢慢变成 AI 时代的「卢德主义者」。当然，我并不反对 AI。相反，我几乎每天都在使用它。只是相比于把 AI 当成一个能够替代程序员的 Agent，我更希望它仍然像最初的 Copilot 一样——站在我的旁边，而不是坐到我的位置上。
+            <p class="bilingual">
+              <span class="text-zh">这种等待不是休息，而是一种不断被打断的状态。它让注意力始终无法沉浸，也越来越难进入过去那种持续数小时的心流。</span>
+              <span class="text-en">This waiting isn't rest, but a state of constant interruption. It prevents attention from ever becoming immersed, and makes it increasingly difficult to enter that multi-hour flow state of the past.</span>
             </p>
           </section>
 
           <section class="content-section">
-            <h2>结语</h2>
-            <p>
-              也许未来真正值得追求的，并不是让 AI 写更多的代码，而是让程序员，依然能够享受写代码这件事情本身。
+            <h2 class="bilingual-heading">
+              <span class="text-zh">失去的掌控感</span>
+              <span class="text-en">The Lost Sense of Control</span>
+            </h2>
+            <p class="bilingual">
+              <span class="text-zh">更让我感到不适的点是，我开始逐渐失去对代码的掌控感。过去，当我自己实现一个模块时，即使整个项目有数万行代码，我依然能够快速定位问题，因为这些代码是我一行一行写出来的，它们在我的脑海里有一张完整的地图。</span>
+              <span class="text-en">What frustrates me even more is that I'm gradually losing my sense of control over the code. In the past, when I implemented a module myself, even if the entire project had tens of thousands of lines of code, I could still quickly locate problems because this code was written line by line by me—there was a complete map of it in my mind.</span>
+            </p>
+            <p class="bilingual">
+              <span class="text-zh">而现在，我越来越频繁地阅读的是 AI 写出的代码。我知道它最终实现了什么，甚至某种程度上不完全理解它为什么会这样实现。我了解的是结果，而不是过程。</span>
+              <span class="text-en">Now, I increasingly find myself reading code written by AI. I know what it ultimately achieves, but to some extent, I don't fully understand why it implemented it that way. I understand the result, not the process.</span>
+            </p>
+            <p class="bilingual">
+              <span class="text-zh">当 Bug 出现时，我需要重新阅读一遍那些自己从未真正参与构建的代码。这种感觉很奇怪——代码属于我的仓库，却并不真正属于我的认知。曾经那种在几万行代码中一眼锁定问题的快感，也慢慢消失了。因为，你已经没有那么了解这份代码了。</span>
+              <span class="text-en">When bugs appear, I need to re-read code I never truly participated in building. This feeling is strange—the code belongs to my repository, but doesn't truly belong to my understanding. That thrill of pinpointing a problem at a glance in tens of thousands of lines of code has slowly faded. Because you no longer know this code that well.</span>
+            </p>
+          </section>
+
+          <section class="content-section">
+            <h2 class="bilingual-heading">
+              <span class="text-zh">时间都去哪了</span>
+              <span class="text-en">Where Did All the Time Go?</span>
+            </h2>
+            <p class="bilingual">
+              <span class="text-zh">有一段时间，我甚至写了一个命令行小工具voidtally，专门统计自己每天有多少时间浪费在「等待 AI 思考」。结果远比我想象中夸张。那些几分钟、十几分钟的等待，被切碎之后散落在一天里，最后竟然累积成了相当可观的时间。</span>
+              <span class="text-en">For a while, I even wrote a small command-line tool called voidtally, specifically to track how much time I wasted each day "waiting for AI to think." The results were far more exaggerated than I imagined. Those minutes and tens of minutes of waiting, fragmented and scattered throughout the day, ultimately accumulated into a considerable amount of time.</span>
+            </p>
+            <p class="bilingual">
+              <span class="text-zh">当然，这并不意味着 AI 降低了我的开发效率。很多原本需要几小时才能完成的工作，现在可能十几分钟就结束了。真正的问题在于，它改变了开发者工作的节奏。</span>
+              <span class="text-en">Of course, this doesn't mean AI has reduced my development efficiency. Many tasks that originally took hours can now be completed in just a dozen minutes. The real issue is that it has changed the rhythm of a developer's work.</span>
+            </p>
+            <p class="bilingual">
+              <span class="text-zh">过去是人持续思考、机器执行；现在变成了机器持续思考、人不断等待。这种角色的互换，远没有我最初想象得那么舒服。</span>
+              <span class="text-en">It used to be humans continuously thinking and machines executing; now it's become machines continuously thinking and humans constantly waiting. This role reversal is far less comfortable than I initially imagined.</span>
+            </p>
+          </section>
+
+          <section class="content-section">
+            <h2 class="bilingual-heading">
+              <span class="text-zh">回归「古法编程」？</span>
+              <span class="text-en">Returning to "Traditional Programming"?</span>
+            </h2>
+            <p class="bilingual">
+              <span class="text-zh">这也让我开始重新思考一个有些「逆潮流」的问题：我是不是应该在某种程度上回归一点「古法编程」？</span>
+              <span class="text-en">This has led me to reconsider a somewhat "counter-current" question: Should I, to some extent, return to a bit of "traditional programming"?</span>
+            </p>
+            <p class="bilingual">
+              <span class="text-zh">这并不代表拒绝 AI，也不是盼望重新回到一行一行手写所有代码的时代。而是在那些真正重要的地方——例如算法设计、核心计算逻辑、系统架构——重新把思考权掌握在自己手里。尤其对于算法工程师来说，一个看似微不足道的计算细节，可能就会让整个算法最终结果产生巨大的偏差。这些地方，我越来越希望代码来自自己的理解，而不是模型的一次采样。</span>
+              <span class="text-en">This doesn't mean rejecting AI, nor longing to return to an era of hand-writing every line of code. Rather, it's about reclaiming the right to think in those truly important places—such as algorithm design, core computational logic, and system architecture. Especially for algorithm engineers, a seemingly trivial computational detail might cause massive deviations in the algorithm's final results. In these places, I increasingly hope the code comes from my own understanding, rather than a single sampling from the model.</span>
+            </p>
+            <p class="bilingual">
+              <span class="text-zh">有时候我甚至觉得，自己正在慢慢变成 AI 时代的「卢德主义者」。当然，我并不反对 AI。相反，我几乎每天都在使用它。只是相比于把 AI 当成一个能够替代程序员的 Agent，我更希望它仍然像最初的 Copilot 一样——站在我的旁边，而不是坐到我的位置上。</span>
+              <span class="text-en">Sometimes I even feel like I'm slowly becoming a "Luddite" of the AI era. Of course, I'm not opposed to AI. On the contrary, I use it almost every day. It's just that compared to treating AI as an Agent that can replace programmers, I'd prefer it to remain like the original Copilot—standing beside me, rather than sitting in my seat.</span>
+            </p>
+          </section>
+
+          <section class="content-section">
+            <h2 class="bilingual-heading">
+              <span class="text-zh">结语</span>
+              <span class="text-en">Conclusion</span>
+            </h2>
+            <p class="bilingual">
+              <span class="text-zh">也许未来真正值得追求的，并不是让 AI 写更多的代码，而是让程序员，依然能够享受写代码这件事情本身。</span>
+              <span class="text-en">Perhaps what's truly worth pursuing in the future isn't having AI write more code, but ensuring that programmers can still enjoy the act of coding itself.</span>
             </p>
           </section>
 
