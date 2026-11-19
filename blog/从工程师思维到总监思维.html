@@ -1,0 +1,277 @@
+<!--
+  @Author: Fengze Han
+  @Date:   2026-11-19
+  @Last Modified by:   Fengze Han
+  @Last Modified time: 2026-11-19 15:05:43
+-->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>从工程师思维到总监思维：AI 时代，你必须学会放手 / From Engineer Mindset to Director Mindset: In the AI Era, You Must Learn to Let Go | Fengze Han</title>
+  <meta name="description" content="AI Agent 将工程师的工作重心从逐行执行推向目标定义、系统约束与结果验收。真正的技术 Director，不必亲自完成所有工作，但必须对所有被授权的工作负责。 / AI agents are shifting engineers from line-by-line execution toward goal definition, system constraints, and outcome validation. A true technical director does not need to do every task personally, but remains responsible for all delegated work.">
+  <meta name="author" content="Fengze Han">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+  <link rel="icon" href="../images/robotics.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" type="text/css" href="../cyberpunk-blog.css">
+  <link rel="stylesheet" type="text/css" href="../bilingual-blog.css">
+</head>
+
+<body>
+  <nav class="navigation">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">
+          <i class="fas fa-home"></i> Home
+        </a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#blog" class="nav-link">Blog</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <article class="blog-article">
+      <div class="container">
+        <header class="article-header">
+          <div class="breadcrumb">
+            <a href="../index.html" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../index.html#blog" class="breadcrumb-link">Blog</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">从工程师思维到总监思维</span>
+          </div>
+
+          <h1 class="article-title">
+            <span class="title-chinese">从工程师思维到总监思维：AI 时代，你必须学会放手</span>
+            <span class="title-english">From Engineer Mindset to Director Mindset: In the AI Era, You Must Learn to Let Go</span>
+          </h1>
+
+          <div class="article-meta">
+            <div class="meta-item">
+              <i class="fas fa-calendar-alt"></i>
+              <span>November 19, 2026</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-user"></i>
+              <span>Fengze Han</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <span>12 min read</span>
+            </div>
+          </div>
+
+          <div class="article-tags">
+            <span class="article-tag">AI</span>
+            <span class="article-tag">Engineering Leadership</span>
+            <span class="article-tag">Agent</span>
+            <span class="article-tag">Opinion</span>
+          </div>
+        </header>
+
+        <div class="article-content">
+          <div class="article-intro">
+            <p class="lead-text bilingual">
+              <span class="text-zh">AI 时代，工程师真正的角色转变，是从管理代码细节，走向定义目标、建立约束并验收结果。</span>
+              <span class="text-en">In the AI era, the engineer's real role shift is from managing code details to defining goals, establishing constraints, and validating outcomes.</span>
+            </p>
+          </div>
+
+          <section class="content-section">
+            <p class="bilingual">
+              <span class="text-zh">我发现，很多人在使用 AI 编程时，依然沿用着传统的软件工程思维：让 AI 写一段代码，自己检查一段；让 AI 修改一个函数，自己逐行阅读；稍微遇到不熟悉的实现，就急着追问它为什么这么写，试图理解每一个细节，直到确信代码完全在自己的掌控之中。</span>
+              <span class="text-en">I have noticed that when many people use AI for programming, they still follow traditional software engineering habits: ask AI to write some code, then inspect it piece by piece; ask AI to modify a function, then read every line; when they encounter an unfamiliar implementation, they immediately ask why it was written that way, trying to understand every detail until the code feels entirely under their control.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">这种习惯并不奇怪。事实上，我认为这是一种非常典型的工程师心理。</span>
+              <span class="text-en">This habit is not surprising. In fact, I consider it a very typical engineering mindset.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">想象一下，你刚刚从一名 Senior Engineer 晋升为 Team Leader。过去，你习惯亲自解决问题，对代码质量有很强的控制欲。现在，你开始带实习生，或者管理一支小团队。你很难真正放手：每一个 PR 都要仔细审查，每一个设计决策都想亲自过问，每一个潜在的 Bug 都希望在合并之前被自己发现。你甚至会忍不住想，既然我自己写得更快、更可靠，为什么还要把事情交给别人？</span>
+              <span class="text-en">Imagine that you have just been promoted from Senior Engineer to Team Leader. In the past, you were used to solving problems yourself and maintaining tight control over code quality. Now you begin mentoring interns or managing a small team. Letting go is difficult: you scrutinize every PR, personally question every design decision, and hope to discover every possible bug before merge. You may even wonder: since I can write it faster and more reliably myself, why should I delegate it?</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">这种不安全感，本质上来自角色转变之后的责任焦虑。你开始对团队的最终交付负责，却还没有建立起对他人工作方式的信任。于是，你试图通过控制过程来获得安全感。</span>
+              <span class="text-en">At its core, this insecurity comes from the anxiety of responsibility after a role change. You become accountable for the team's final delivery before you have developed trust in how others work. As a result, you try to gain a sense of security by controlling the process.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">但随着团队规模扩大，你迟早会意识到：如果所有代码都需要你逐行检查，如果所有技术决策都必须经过你亲自确认，那么你就不是在管理团队，而是在给自己增加更多的工作。你成为了整个团队的瓶颈。一个真正成熟的 Team Leader，必须逐渐学会授权，允许团队成员在明确的目标和约束下自主解决问题。你不再需要知道每个人的每一行代码是怎么写出来的，你需要知道的是，他们交付的东西是否满足要求，是否符合系统设计，是否经得起测试。</span>
+              <span class="text-en">But as a team grows, you eventually realize that if all code must be inspected line by line and every technical decision requires your personal confirmation, you are not managing a team but creating more work for yourself. You become the bottleneck. A mature Team Leader must learn to delegate, allowing team members to solve problems independently within clear goals and constraints. You no longer need to know how every line of each person's code was written. You need to know whether their delivery satisfies the requirements, conforms to the system design, and stands up to testing.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh"><strong>而今天，AI 正在要求我们完成一次类似的角色转变，只不过这一次，转变的幅度可能更大。</strong></span>
+              <span class="text-en"><strong>Today, AI is asking us to make a similar role transition, only this time the scale of that transition may be much greater.</strong></span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">过去，我们把 AI 当作一个需要时刻监督的实习生：告诉它写什么，检查它怎么写，纠正它的每一个错误。我们依然把自己放在执行链条的中心，AI 只是一个提高编码速度的工具。但如果你真的把 AI 当作一个能够自主规划、执行、调试和验证任务的 Agent，那么你就应该重新思考自己的位置。</span>
+              <span class="text-en">In the past, we treated AI like an intern who needed constant supervision: we told it what to write, checked how it wrote it, and corrected every mistake. We kept ourselves at the center of the execution chain, with AI serving only as a tool for faster coding. But if you truly regard AI as an agent capable of independently planning, executing, debugging, and validating tasks, then you should reconsider your own position.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">你不应该再试图理解 AI 写下的每一行代码，而应该逐渐习惯把完整的工程任务交给它。你负责定义问题、明确目标、提供必要的上下文和约束，AI 负责拆解任务、选择实现路径、编写代码、运行测试、修复问题，直到形成一个可以交付的结果。你需要做的，是在关键节点进行审查，尤其是在最终 Merge 之前，对整个交付物进行验收。</span>
+              <span class="text-en">Instead of trying to understand every line AI writes, you should become accustomed to handing it complete engineering tasks. You define the problem, clarify the goal, and provide the necessary context and constraints. AI breaks down the task, chooses an implementation path, writes code, runs tests, and fixes issues until it produces a deliverable result. Your role is to review at key points, especially before the final merge, and accept the delivery as a whole.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">这意味着，你的工作重心正在发生变化：从 How，转向 What；从亲自执行，转向定义目标和验收标准；从管理代码细节，转向管理系统结果。</span>
+              <span class="text-en">This means your focus is changing: from how to what, from executing personally to defining goals and acceptance criteria, and from managing code details to managing system outcomes.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">当然，这并不意味着你应该盲目信任 AI。AI 可能产生幻觉，可能误解需求，可能引入隐蔽的 Bug，也可能为了让测试通过而采用脆弱的实现。它甚至可能写出一套看起来非常合理、实际却偏离系统设计的代码。你需要建立的不是对 AI 的绝对信任，而是一套能够约束和验证其工作的机制。</span>
+              <span class="text-en">Of course, this does not mean you should trust AI blindly. AI can hallucinate, misunderstand requirements, introduce hidden bugs, or use fragile implementations merely to make tests pass. It may even produce code that looks reasonable but diverges from the system design. What you need is not absolute trust in AI, but a mechanism that constrains and verifies its work.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">就像管理一个团队，你不需要实时监控每个人的键盘输入，但你必须有明确的工程规范、接口契约、自动化测试、代码审查、CI/CD、安全检查和回滚验证。你可以允许 Agent 自主选择实现路径，但必须确保它的工作始终处于可观测、可验证、可回滚的边界之内。你可以不理解每一个局部实现，但不能放弃对系统架构、关键技术决策和最终行为的理解。</span>
+              <span class="text-en">As with managing a team, you do not need to monitor every keystroke in real time, but you must have clear engineering standards, interface contracts, automated tests, code reviews, CI/CD, security checks, and rollback validation. You can allow an agent to choose its own implementation path, but its work must remain within observable, verifiable, and reversible boundaries. You may not understand every local implementation, but you cannot give up your understanding of the system architecture, critical technical decisions, and final behavior.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">这里有一个非常重要的区别：<strong>不再逐行审查，不等于不再进行工程审查；不再控制执行过程，不等于不再承担工程责任。</strong></span>
+              <span class="text-en">There is a crucial distinction here: <strong>no longer reviewing every line does not mean abandoning engineering review; no longer controlling the execution process does not mean relinquishing engineering responsibility.</strong></span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">所以，我越来越倾向于用 Director 的心态来对待 AI，而不是用传统 Senior Engineer 的心态。</span>
+              <span class="text-en">That is why I increasingly prefer to approach AI with the mindset of a Director rather than that of a traditional Senior Engineer.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">Director 不会关心每个工程师具体用了什么循环、什么数据结构，也不会要求每个人按照自己习惯的方式写代码。他关心的是战略目标、资源配置、组织协作、关键决策和最终交付。他或许需要理解很多细节，以判断方向是否正确、风险是否可控，但不会试图亲自参与所有事情。</span>
+              <span class="text-en">A Director does not concern themselves with which loop or data structure each engineer chose, nor require everyone to code according to their own habits. They focus on strategic goals, resource allocation, organizational coordination, key decisions, and final delivery. They may need to understand many details to judge whether the direction is correct and the risks are controlled, but they do not try to personally participate in everything.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">这并不是说每个人都应该停止阅读代码，或者不再提升自己的工程能力。恰恰相反，你需要把有限的注意力投入到更有杠杆效应的地方：理解系统的边界，设计合理的抽象，识别高风险决策，定义可验证的需求，建立自动化质量保障体系，以及判断最终结果是否真正解决了问题。</span>
+              <span class="text-en">This does not mean everyone should stop reading code or improving their engineering skills. On the contrary, you need to invest limited attention where it has greater leverage: understanding system boundaries, designing sound abstractions, identifying high-risk decisions, defining verifiable requirements, building automated quality safeguards, and judging whether the final result actually solves the problem.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">当 AI 能够自主完成越来越多的编码工作时，工程师的核心竞争力就不再只是写出正确的代码，而是能否提出正确的问题、构建正确的系统、调度足够多的智能体，并对最终结果做出正确判断。</span>
+              <span class="text-en">As AI independently completes more coding work, an engineer's core advantage is no longer merely writing correct code. It is asking the right questions, building the right systems, coordinating enough agents, and making sound judgments about the final result.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">当然，这种转变并不容易。尤其是对那些从底层技术一路成长起来的工程师而言，亲自理解和控制每一个细节，曾经是我们建立专业自信的重要来源。现在突然要求你放弃这种控制感，把一部分执行权交给一个并不总是可靠的 AI，自然会产生不安。</span>
+              <span class="text-en">Of course, this transition is not easy. For engineers who grew up working close to the underlying technology, understanding and controlling every detail was once an important source of professional confidence. Being asked to surrender some of that control and delegate execution to an AI that is not always reliable naturally creates unease.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">但时代已经变了。</span>
+              <span class="text-en">But the times have changed.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">当生产力工具发生数量级变化时，沿用旧的工作方式，可能恰恰会成为限制自己能力上限的因素。你不能一边使用能够自主工作的 Agent，一边又坚持用管理实习生的方式管理它；更不能让 AI 承担了大量执行工作，自己却仍然把注意力消耗在逐行检查代码上。</span>
+              <span class="text-en">When productivity tools improve by orders of magnitude, clinging to old ways of working may itself limit your potential. You cannot use an agent capable of working autonomously while continuing to manage it like an intern. Even less can you have AI perform extensive execution while you still spend your attention inspecting code line by line.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh"><strong>你需要从一个亲自写代码、亲自解决问题的工程师，逐渐转变为一个能够定义目标、调度智能体、构建约束体系并验收结果的技术 Director。</strong></span>
+              <span class="text-en"><strong>You need to evolve from an engineer who writes code and solves problems personally into a technical Director who can define goals, coordinate agents, build systems of constraints, and validate results.</strong></span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">最后，还有一个现实问题：AI 不会替你背锅。</span>
+              <span class="text-en">Finally, there is a practical issue: AI will not take the blame for you.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">如果 AI 写出的代码引发了生产事故，承担责任的依然是你；如果 AI 的实现偏离了业务目标，承担后果的也依然是你。你不能因为代码是 AI 写的，就把工程责任转移给 AI。</span>
+              <span class="text-en">If code written by AI causes a production incident, you still bear the responsibility. If an AI implementation drifts away from business goals, you still bear the consequences. You cannot transfer engineering responsibility to AI simply because AI wrote the code.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">但这恰恰是 Director 心态的真正含义：<strong>你不必亲自完成所有工作，但你必须对所有被你授权的工作负责。</strong></span>
+              <span class="text-en">But that is precisely the true meaning of the Director mindset: <strong>you do not have to complete every task yourself, but you must take responsibility for all work you delegate.</strong></span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">所以，下一次当你打开 IDE，准备让 AI 完成一个完整的功能时，不妨克制一下自己逐行检查的冲动。把目标和约束说清楚，让它自己规划、实现、测试和迭代。你不需要时刻盯着它的每一步，只需要在关键节点判断方向，在最终 Merge 时确认结果。</span>
+              <span class="text-en">So the next time you open your IDE and prepare to let AI complete an entire feature, try to restrain the urge to inspect every line. State the goals and constraints clearly, and let it plan, implement, test, and iterate. You do not need to watch every step; you only need to judge the direction at key points and confirm the result before the final merge.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">你要习惯的，不是 AI 替你写代码，而是 AI 开始替你完成工作。</span>
+              <span class="text-en">What you must become accustomed to is not AI writing code for you, but AI beginning to complete work for you.</span>
+            </p>
+
+            <p class="bilingual">
+              <span class="text-zh">而你，需要学会成为那个负责决定什么工作值得做、什么结果可以被接受，以及最终应该为此承担什么责任的人。</span>
+              <span class="text-en">And you must learn to become the person who decides which work is worth doing, which results are acceptable, and what responsibility must ultimately be assumed for them.</span>
+            </p>
+          </section>
+        </div>
+
+        <section class="comments-section" style="margin-top: 4rem;">
+          <div class="giscus"></div>
+        </section>
+
+        <footer class="article-footer">
+          <div class="author-info">
+            <img src="../images/personal.jpg" alt="Fengze Han" class="author-avatar">
+            <div class="author-details">
+              <h4 class="author-name">Fengze Han, M.Sc.</h4>
+              <p class="author-bio">
+                Perception Lead at Altos Radar Inc., specializing in multi-modal sensor fusion and real-time algorithms for autonomous driving systems. M.Sc. from Technical University of Munich (TUM).
+              </p>
+              <div class="author-links">
+                <a href="../index.html#contact" class="author-link">
+                  <i class="fas fa-envelope"></i> Contact
+                </a>
+                <a href="https://www.linkedin.com/in/fengzehan/" class="author-link" target="_blank">
+                  <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/fengzeAltos" class="author-link" target="_blank">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-navigation">
+            <a href="../index.html#blog" class="back-to-blog">
+              <i class="fas fa-arrow-left"></i> Back to Blog
+            </a>
+          </div>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+  <script src="https://giscus.app/client.js"
+          data-repo="Fzzzhan/fzzzhan.github.io"
+          data-repo-id="R_kgDOLyt9hw"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOLyt9h84C6hRs"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+
+</html>
