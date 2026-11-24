@@ -1,0 +1,277 @@
+<!--
+  @Author: Fengze Han
+  @Date:   2026-11-24
+  @Last Modified by:   Fengze Han
+  @Last Modified time: 2026-11-24 17:23:16
+-->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>命运：一个关于人生的非平稳动态优化问题 / Fate: A Non-Stationary Dynamic Optimization Problem of Life | Fengze Han</title>
+  <meta name="description" content="用流形、Loss Landscape、非凸优化与非平稳系统，重新理解命运、时运、成长与自由意志。">
+  <meta name="author" content="Fengze Han">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+  <link rel="icon" href="../images/robotics.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" type="text/css" href="../cyberpunk-blog.css">
+  <link rel="stylesheet" type="text/css" href="../bilingual-blog.css">
+</head>
+
+<body>
+  <nav class="navigation">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#blog" class="nav-link">Blog</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <article class="blog-article">
+      <div class="container">
+        <header class="article-header">
+          <div class="breadcrumb">
+            <a href="../index.html" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../index.html#blog" class="breadcrumb-link">Blog</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">命运与非平稳优化</span>
+          </div>
+
+          <h1 class="article-title">
+            <span class="title-chinese">命运：一个关于人生的非平稳动态优化问题</span>
+            <span class="title-english">Fate: A Non-Stationary Dynamic Optimization Problem of Life</span>
+          </h1>
+
+          <div class="article-meta">
+            <div class="meta-item"><i class="fas fa-calendar-alt"></i><span>November 24, 2026</span></div>
+            <div class="meta-item"><i class="fas fa-user"></i><span>Fengze Han</span></div>
+            <div class="meta-item"><i class="fas fa-clock"></i><span>18 min read</span></div>
+          </div>
+
+          <div class="article-tags">
+            <span class="article-tag">Optimization</span>
+            <span class="article-tag">Philosophy</span>
+            <span class="article-tag">Life</span>
+            <span class="article-tag">Non-Stationary Systems</span>
+          </div>
+        </header>
+
+        <div class="article-content">
+          <div class="article-intro">
+            <p class="lead-text">如果把人生看作一个优化问题，所谓“命”，或许是出生时拥有的初始条件，以及这些条件构成的内在地形；所谓“运”，则是作用于这张地形上的动态势能场。我们都在寻找属于自己的最优解，却并不站在同一张 Loss Landscape 上，也并非从同一个坐标出发。</p>
+          </div>
+
+          <section class="content-section">
+            <p>今天洗澡时突然灵光一闪，想从数学优化问题角度去解释命运，结合跟GPT的探讨，形成此文。打个比方说，有人出生时就处在一条平滑、宽阔、梯度方向明确的下降通道；有人却从一开始就进入一个崎岖、复杂、Condition Number 极差的区域。前者也许只需沿着梯度持续前进，就能获得不错的结果；后者即使付出同样的努力，也可能长期陷入局部震荡，甚至难以识别真正有效的方向。</p>
+            <p>这个类比并不意味着人生能够被一组公式穷尽。它只是提供了一种更克制的语言，帮助我们区分努力、初始条件、环境变化，以及人生目标本身的演化。</p>
+            <p>更重要的是，努力并不只是“更快地下降”。在复杂系统中，有时需要加入扰动，有时需要重新评估目标函数，甚至需要承认：过去有效的方向，未必仍然通向未来。</p>
+          </section>
+
+          <section class="content-section">
+            <h2>一、命：人生的初始条件与内在几何结构</h2>
+            <p>如果借用微分几何的语言，人生可以被抽象成一个定义在高维流形上的动态优化问题。每个人出生时都拥有不同的初始状态。家庭背景、天赋、性格、认知、健康、资源和时代环境，共同决定了初始状态附近的局部几何结构。</p>
+            <p>我们可以把一个人的初始人生空间写成：</p>
+            <div class="equation">\[\mathcal{M}_0=(M_0,g_0)\]</div>
+            <ul>
+              <li><strong>\(M_0\)</strong>：由先天条件和初始约束定义的状态空间。</li>
+              <li><strong>\(g_0\)</strong>：描述这个空间中距离、角度和局部代价的内在度量。</li>
+              <li><strong>\(x_0\)</strong>：个体出生时的初始状态。</li>
+            </ul>
+            <p>这里的“命”，不只是初始坐标 \(x_0\)，而是更深层的初始条件、可行空间和内在几何。即使两个人处在同一社会环境中、面对同一个机会，他们的反应也可能完全不同。</p>
+            <p>一个人擅长抽象思考、技术创造和独立探索，却不擅长组织协调与复杂人际关系；另一个人恰好相反。一个人能够在高不确定环境中做出决策，另一个人则更适合稳定、结构化的组织。这意味着，他们虽然生活在同一个物理世界，却拥有不同的能力结构、约束条件和有效行动空间。</p>
+            <ul>
+              <li>某些方向曲率较好，能力与环境匹配，稍加投入就能获得正反馈。</li>
+              <li>某些方向曲率较差，优化过程容易震荡，投入与收益之间具有较大不确定性。</li>
+              <li>某些方向受到强约束，即使机会存在，也很难有效进入。</li>
+              <li>某些方向可能拥有巨大的增长空间，却需要跨越很高的初始门槛。</li>
+            </ul>
+            <p>这让我想到传统命理中的八字。若将它从神秘主义叙事中抽离，可以把它理解成一种对出生时空条件的符号化描述。它通过出生时间，把人放置在某个特定的时空坐标中，并据此推演先天结构与后续变化。</p>
+            <p>当然，这不意味着八字已经被证明可以刻画真实的人生流形，也不意味着人格和命运可以通过出生时间精确计算。但作为哲学隐喻，它提醒我们：人与人之间的差异，可能不仅仅在于努力程度，更在于各自的初始条件和约束空间并不相同。</p>
+            <blockquote><p><strong>命决定了你从哪里开始，也决定了你最初拥有怎样的地形。</strong></p></blockquote>
+          </section>
+
+          <section class="content-section">
+            <h2>二、人生的 Loss Landscape：局部最优与鞍点</h2>
+            <p>机器学习中的优化算法通过不断调整参数 \(x\)，寻找损失函数 \(L(x)\) 的最小值：</p>
+            <div class="equation">\[x^*=\arg\min_x L(x)\]</div>
+            <p>最简单的方法是梯度下降：</p>
+            <div class="equation">\[x_{t+1}=x_t-\eta\nabla L(x_t)\]</div>
+            <p>其中 \(\eta\) 是学习率，\(\nabla L(x_t)\) 是当前位置的梯度。映射到人生中，努力像是一次次参数更新，而职业选择、能力积累、环境切换和资源配置，则是在不断调整优化过程中的变量。</p>
+            <p>然而，Gradient Descent 并不保证能够找到 Global Optimum。非凸问题中存在大量 Local Minima、Saddle Points 和 Plateaus。一个算法即使运行足够多次，也可能被困在某个局部区域，无法抵达真正更好的解。</p>
+            <p>人生同样如此。有些人很早就进入适合自己的环境，个人能力与外部资源形成正反馈，优化过程相对平滑；也有人长期处在复杂的局部结构中，并非没有努力，也并非缺乏能力，只是沿着既定路径持续投入，始终无法获得预期的改善。</p>
+            <p>我尤其喜欢用鞍点来理解那些长期处于困境，却并非真正毫无潜力的人生阶段。对二阶可微函数，鞍点通常满足：</p>
+            <div class="equation">\[\nabla L(x_s)=0\]</div>
+            <p>但其 Hessian Matrix 同时存在正特征值和负特征值：</p>
+            <div class="equation">\[H(x_s)=\nabla^2L(x_s)\]</div>
+            <p>这意味着，在某些方向上继续前进，Loss 会增加；而在另一些方向上，Loss 会下降。从局部视角看，你似乎没有前进空间：沿着熟悉方向努力，收益越来越小；尝试其他方向，又缺少足够的信息判断它们是否值得投入。</p>
+            <p>更麻烦的是，鞍点附近的梯度可能非常接近零，传统一阶优化算法会出现长时间停滞。你似乎已经足够努力，却始终无法找到有效的突破方向。</p>
+            <blockquote><p><strong>鞍点不是终点，而是可能存在其他下降方向的临界结构。</strong></p></blockquote>
+            <p>通过 Momentum、随机扰动，或者利用二阶曲率信息识别 Hessian 中的负特征值方向，优化算法有机会离开鞍点，进入新的下降通道。映射到人生，有时候真正需要的不是继续提高努力强度，而是改变优化策略：离开熟悉环境、切换职业路径、重建能力组合，甚至放弃过去一直追求的目标。</p>
+            <p>并非所有挫折都是鞍点，也并非所有突破都会通向 Global Optimum。但这个数学隐喻至少提醒我们：<strong>局部停滞不等于全局无解，当前路径的失败也不等于整个人生的失败。</strong></p>
+          </section>
+
+          <section class="content-section">
+            <h2>三、运：作用于 Manifold 的动态势能场</h2>
+            <p>如果说命决定了一个人最初所处的内在几何结构，那么运又是什么？我认为，运可以被理解为一个随时间变化的外生势能场。</p>
+            <p>我们面对的并不是一个永远静态的优化问题。时代、产业周期、技术、社会规则和个人状态都在变化。因此，人生目标不应简单地写成静态函数，而应该是：</p>
+            <div class="equation">\[\boxed{L(x,t)=L_{\text{intrinsic}}(x)+V_{\text{external}}(x,t)}\]</div>
+            <ul>
+              <li><strong>\(L_{\text{intrinsic}}(x)\)</strong>：由个人内在特征与长期约束决定的基础目标结构。</li>
+              <li><strong>\(V_{\text{external}}(x,t)\)</strong>：随时间变化的外部势能场，包括宏观经济、产业周期、技术革命、社会环境、机会窗口和偶然事件。</li>
+            </ul>
+            <p>势能场不是独立于流形之外的另一张地图，而是定义在这个流形上的标量场。命提供了一个人所处的初始几何空间，而运则在这个空间上不断施加外部作用。</p>
+            <div class="equation">\[\boxed{\text{Fate}=\text{Intrinsic Geometry}}\]</div>
+            <div class="equation">\[\boxed{\text{Fortune}=\text{Time-Varying Potential Field}}\]</div>
+            <div class="equation">\[\boxed{\text{Life}=\text{Dynamic Optimization on a Manifold}}\]</div>
+            <p>势能场变化后，不仅收益会变化，整个优化问题的局部结构也会变化。从梯度看：</p>
+            <div class="equation">\[\nabla L(x,t)=\nabla L_{\text{intrinsic}}(x)+\nabla V_{\text{external}}(x,t)\]</div>
+            <p>从二阶曲率看：</p>
+            <div class="equation">\[H(x,t)=H_{\text{intrinsic}}(x)+H_{\text{external}}(x,t)\]</div>
+            <p>这里的公式是对局部优化结构的简化表达。严格来说，在 Riemannian Manifold 上，应使用 Riemannian Gradient 和 Hessian。</p>
+            <p>假设一个人具备很强的算法能力，却不擅长传统组织中的资源协调与关系维护。在大型组织的晋升体系里，他可能长期处在低收益区域。继续优化原有路径，边际收益可能不断下降。</p>
+            <p>但当 AI 技术革命发生后，算法能力、系统架构能力和独立创造能力的市场价值改变，原本劣势明显的路径也可能突然拥有更大的收益空间。他的内在能力并没有在一夜之间变化，改变的是外部势能场。</p>
+            <blockquote><p><strong>所谓时运，有时就是一个人的内在能力结构，终于遇到了能够释放其价值的外部势能场。</strong></p></blockquote>
+            <p>同样，传统命理中的“大运”可以类比较长时间尺度上的势能场变化，而“流年”则类似较短时间尺度上的扰动：</p>
+            <div class="equation">\[L(x,t)=L_0(x)+V_{\text{decade}}(x,t)+V_{\text{year}}(x,t)\]</div>
+            <p>这并不是在宣称大运和流年能够被数学精确计算，而是用这个模型理解一种现象：同一个人，在不同时间窗口中，面对的可能是完全不同的局部优化问题。</p>
+          </section>
+
+          <section class="content-section">
+            <h2>四、运是否会改变 Manifold 本身？</h2>
+            <p>如果运是作用在 Manifold 上的势能场，那么它只改变势能分布，还是也能改变 Manifold 本身？从现实演化看，两种情况都可能发生。</p>
+            <p>第一种情况是流形相对稳定，Potential Field 发生变化。个人的内在特征和基础约束相对稳定，但外部环境不断变化，导致目标函数的梯度、Hessian 和局部极值发生变化。例如，AI 革命并没有改变一个人的先天认知结构，却可能彻底改变他的职业机会和能力变现方式。</p>
+            <p>第二种情况是流形本身也发生变化。学习会改变认知结构，经历会改变决策方式，身体状态会改变行动能力，而财富与资源会扩大可选择的行动空间。因此，可以进一步定义一个随时间演化的流形：</p>
+            <div class="equation">\[\mathcal{M}_t=(M_t,g_t)\]</div>
+            <p>于是，更完整的动态优化问题可以写成：</p>
+            <div class="equation">\[\boxed{\min_{x(t)\in\mathcal{M}_t}L_t(x)}\]</div>
+            <div class="equation">\[L_t(x)=L_{\text{intrinsic}}(x;\mathcal{M}_t)+V_{\text{external}}(x,t)\]</div>
+            <p>一个人在某个行业工作十年，积累了专业知识、行业资源和商业判断力。他不仅仅在原来的空间中移动了位置，实际上也改变了自己的能力结构，获得了过去不具备的行动方向。</p>
+            <p>一个原本没有创业条件的人，可能通过长期积累资金、技术和行业资源，逐渐获得独立创业的能力；一个原本只擅长单一专业领域的工程师，也可能通过跨领域学习，获得管理、商业和组织协调能力。</p>
+            <div class="equation">\[\text{Environment}\rightarrow\text{Individual}\rightarrow\text{New Capability Space}\]</div>
+            <p>环境影响个人，个人通过学习和行动改变自身结构，而新的能力结构又让他能够进入过去无法触及的状态空间。这时，改变的不只是参数 \(x\)，还有参数所在的可行空间。</p>
+            <blockquote><p><strong>命决定初始地形，运改变地形上的势能分布，而人的成长又可能反过来改变自己所处的地形。</strong></p></blockquote>
+          </section>
+
+          <section class="content-section">
+            <h2>五、人生的突破：Momentum、Reparameterization 与逃离局部最优</h2>
+            <p>如果一个人意识到自己可能长期被困在某个局部区域，究竟应该怎么办？至少有三个值得思考的方向。</p>
+
+            <h3>1. 引入 Momentum</h3>
+            <p>在传统 Gradient Descent 中，每一步只依赖当前梯度。Momentum 则引入历史梯度的积累：</p>
+            <div class="equation">\[v_{t+1}=\beta v_t+\nabla L(x_t)\]</div>
+            <div class="equation">\[x_{t+1}=x_t-\eta v_{t+1}\]</div>
+            <p>人生中的 Momentum 也是如此。真正的突破很少来自某一天突然产生的灵感，往往是长期积累的技术能力、行业认知、资源、人脉、资金和心理韧性共同形成的结果。</p>
+            <p>当你决定离开原有环境时，真正支撑你进入新领域的，不是一时冲动，而是此前积累的动量。</p>
+
+            <h3>2. Reparameterization：改变坐标系</h3>
+            <p>很多时候，问题并不在于当前参数的取值，而在于我们一直使用错误的参数化方式理解问题。</p>
+            <p>如果一个人始终把自己定义为某个组织中的技术员工，那么他的优化目标可能长期围绕职位、职级、薪酬和组织认可展开。但当他切换到创业者、独立开发者、技术管理者或投资人的坐标系时，原本的能力组合可能产生完全不同的价值。</p>
+            <p>同样的技术能力，在不同组织结构、商业模式和产业环境中，可能对应完全不同的收益函数。有时候，你需要的不是在旧坐标系里继续优化，而是重新定义自己的参数空间。</p>
+
+            <h3>3. 利用二阶信息识别真正值得前进的方向</h3>
+            <p>一阶梯度告诉我们当前应该往哪里走，二阶信息则揭示不同方向上的曲率：</p>
+            <div class="equation">\[L(x+\Delta x)\approx L(x)+\nabla L(x)^T\Delta x+\frac{1}{2}\Delta x^TH(x)\Delta x\]</div>
+            <p>映射到人生，我们不应该只关注眼前收益，还应该判断不同路径的长期结构：某个方向究竟拥有多大的成长空间？当前成功是否只是一个浅层 Local Minimum？某条看似艰难的路径，是否连接着更大的解空间？</p>
+            <p>人生没有可以直接计算出来的 Hessian，也不存在能够保证通向全局最优的算法。但这种思考方式至少能帮助我们摆脱单纯依赖短期反馈的局限。</p>
+          </section>
+
+          <section class="content-section">
+            <h2>六、非平稳优化：为什么人生不能依靠一套固定策略</h2>
+            <p>如果人生的 Loss Landscape 本身就在不断变化，那么，我们是否应该制定一套固定、长期不变的优化策略？我的答案是否定的。</p>
+            <p>在 Non-stationary Optimization 中，过去有效的策略未必适应未来环境。如果一个模型只适应历史数据，就可能在分布发生变化时性能下降。过去的成功经验，甚至可能成为未来的认知负担。</p>
+            <p>某个人依靠学历、技术能力或行业红利获得早期成功，便可能把这些经验固化为长期策略。当外部环境变化时，他仍然使用旧的优化方法解决新的问题，最终陷入 Overfitting。</p>
+            <p>因此，人生更适合采用 Online Learning 和 Model Predictive Control 的思路。与其在年轻时写下一份覆盖未来三十年的静态计划，不如持续观察环境变化、更新认知模型，并根据最新状态调整行动策略。</p>
+            <p>它可以被抽象为一个滚动优化问题：</p>
+            <div class="equation">\[\min_{x_{t:t+H}}\sum_{k=t}^{t+H}L(x_k,k)\]</div>
+            <p>在每个时间窗口内，根据当前状态预测未来一段时间的变化，优化接下来的行动，但只执行当前阶段的决策。随着新信息出现，再重新规划。</p>
+            <ul>
+              <li>环境不确定、噪声较大的阶段，降低学习率，控制风险敞口，避免系统震荡。</li>
+              <li>机会逐渐明确、信号质量提高时，适当增加投入，扩大探索范围。</li>
+              <li>某些方向长期出现 Gradient Vanishing 时，重新评估目标函数，而不是一味增加迭代次数。</li>
+              <li>外部环境发生重大变化时，及时更新模型，避免被过去的成功经验束缚。</li>
+            </ul>
+            <p>这是一种更成熟的人生策略：不追求一次性找到永恒正确的答案，而是保持持续优化和重新建模的能力。</p>
+          </section>
+
+          <section class="content-section">
+            <h2>七、命运与自由意志：人生真正的 Global Optimum 是什么？</h2>
+            <p>命是初始条件与内在几何结构；运是外部势能场随时间的变化；努力是参数更新与状态演化；选择是优化策略和搜索方向；人的成长，则可能进一步改变自身的流形。</p>
+            <p>但更深层的问题是：人生是否真正存在一个 Global Optimum？</p>
+            <p>机器学习中的优化通常有明确的 Objective Function，我们知道什么叫做 Loss，什么叫更优解。但人生并没有天然给定的目标函数。财富、地位、权力、自由、创造、精神满足，这些目标之间可能彼此冲突。一个人在财富维度上取得 Global Optimum，也未必在人生整体意义上获得最优解。</p>
+            <p>更重要的是，目标函数本身会随着认知而变化：</p>
+            <div class="equation">\[L_t(x)\neq L_{t+1}(x)\]</div>
+            <p>年轻时，我们可能将财富和社会地位作为主要目标；经历增加后，又可能开始追求自由、创造力、精神满足与生命体验。人生不仅是一个动态优化问题，还是一个 Objective Function 本身不断演化的问题。</p>
+            <p>我们不仅在寻找最优解，也在不断重新定义什么才值得优化。</p>
+            <p>这或许才是自由意志最有意思的地方。我们无法决定所有初始条件，也无法控制所有外部变量，但我们并不只是一个被动执行梯度下降的优化器。我们还可以审视自己的目标函数，改变参数化方式，重新选择搜索空间，甚至决定不再优化某些曾经执着追求的东西。</p>
+            <blockquote><p><strong>如果命是一张无法选择的初始地形图，那么运就是这张地图上不断变化的势能场；而自由意志，是我们在有限约束下探索、调整、学习，甚至重新定义目标的能力。</strong></p></blockquote>
+            <p>有人出生在平缓的山谷，有人出生在复杂的鞍点；有人很早就找到适合自己的下降方向，有人则需要经历漫长震荡才能离开局部结构。我们无法保证每个人都能找到自己的 Global Optimum，也无法保证所有努力最终都会得到回报。</p>
+            <p>但至少，我们不应该把当前所处的局部状态，当成整个人生的全部解空间。</p>
+            <p>人生从来不是一个简单的 Gradient Descent 问题。它更像一个在非平稳环境中运行、具有复杂约束、目标函数持续演化的高维优化系统。</p>
+            <p><strong>而我们每个人，都是这个系统中唯一能够亲自参与定义目标、选择路径，并承担最终结果的优化者。</strong></p>
+          </section>
+        </div>
+
+        <section class="comments-section" style="margin-top: 4rem;">
+          <div class="giscus"></div>
+        </section>
+
+        <footer class="article-footer">
+          <div class="author-info">
+            <img src="../images/personal.jpg" alt="Fengze Han" class="author-avatar">
+            <div class="author-details">
+              <h4 class="author-name">Fengze Han, M.Sc.</h4>
+              <p class="author-bio">Perception Lead at Altos Radar Inc., specializing in multi-modal sensor fusion and real-time algorithms for autonomous driving systems. M.Sc. from Technical University of Munich (TUM).</p>
+              <div class="author-links">
+                <a href="../index.html#contact" class="author-link"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="https://www.linkedin.com/in/fengzehan/" class="author-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/fengzeAltos" class="author-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="article-navigation">
+            <a href="../index.html#blog" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+          </div>
+        </footer>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="Fzzzhan/fzzzhan.github.io"
+          data-repo-id="R_kgDOLyt9hw"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOLyt9h84C6hRs"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+
+</html>
