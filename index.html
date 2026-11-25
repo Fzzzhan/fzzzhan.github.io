@@ -2,7 +2,7 @@
   @Author: Fengze Han
   @Date:   2025-10-18 11:04:50
   @Last Modified by:   Fengze Han
-  @Last Modified time: 2026-11-24 17:03:08
+  @Last Modified time: 2026-11-25 12:35:37
 -->
 <!DOCTYPE HTML>
 <html lang="en">
@@ -146,126 +146,49 @@
     <section id="blog" class="blog-section">
       <div class="container">
         <h2 class="section-title"><i class="fas fa-blog"></i> Technical Blog & Notes</h2>
-        <div class="blog-content">
-          <div class="blog-grid">
-            <!-- Newest Blog Post -->
-            <article class="blog-post">
-              <div class="blog-meta">
-                <span class="blog-date">Nov 2026</span>
-                <span class="blog-category">Essay</span>
-              </div>
-              <h3 class="blog-title">
-                <a href="blog/命运：一个关于人生的非平稳动态优化问题.html" class="blog-link">
-                  命运：一个关于人生的非平稳动态优化问题
-                </a>
-              </h3>
-              <p class="blog-excerpt">
-                从流形、Loss Landscape 与非凸优化出发，重新思考初始条件、时代变化、成长，以及自由意志如何共同塑造一条人生路径。
-              </p>
-              <div class="blog-tags">
-                <span class="blog-tag">Optimization</span>
-                <span class="blog-tag">Philosophy</span>
-                <span class="blog-tag">Life</span>
-              </div>
-              <a href="blog/命运：一个关于人生的非平稳动态优化问题.html" class="read-more-btn">
-                <i class="fas fa-arrow-right"></i> Read More
+        <details class="blog-list-collapse" open>
+          <summary>
+            <span class="blog-summary-label">Latest writing</span>
+            <span class="blog-summary-count">Recent 5</span>
+          </summary>
+          <ol class="blog-list">
+            <li class="blog-list-item">
+              <a href="blog/命运：一个关于人生的非平稳动态优化问题.html" class="blog-link">
+                <span class="blog-list-index">01</span>
+                <time class="blog-list-date" datetime="2026-11-24">Nov 24, 2026</time>
+                <span class="blog-list-title">命运：一个关于人生的非平稳动态优化问题</span>
               </a>
-            </article>
-
-            <!-- Latest Blog Post -->
-            <article class="blog-post">
-              <div class="blog-meta">
-                <span class="blog-date">Nov 2026</span>
-                <span class="blog-category">Opinion</span>
-              </div>
-              <h3 class="blog-title">
-                <a href="blog/从工程师思维到总监思维.html" class="blog-link">
-                  从工程师思维到总监思维：AI 时代，你必须学会放手
-                </a>
-              </h3>
-              <p class="blog-excerpt">
-                AI Agent 改变的不只是编码速度，更是工程师的角色边界：定义目标、建立约束、调度智能体，并对最终结果负责。
-              </p>
-              <div class="blog-tags">
-                <span class="blog-tag">AI</span>
-                <span class="blog-tag">Leadership</span>
-                <span class="blog-tag">Agent</span>
-              </div>
-              <a href="blog/从工程师思维到总监思维.html" class="read-more-btn">
-                <i class="fas fa-arrow-right"></i> Read More
+            </li>
+            <li class="blog-list-item">
+              <a href="blog/从工程师思维到总监思维.html" class="blog-link">
+                <span class="blog-list-index">02</span>
+                <time class="blog-list-date" datetime="2026-11-19">Nov 19, 2026</time>
+                <span class="blog-list-title">从工程师思维到总监思维：AI 时代，你必须学会放手</span>
               </a>
-            </article>
-
-            <!-- Latest Blog Post -->
-            <article class="blog-post">
-              <div class="blog-meta">
-                <span class="blog-date">Nov 2026</span>
-                <span class="blog-category">Opinion</span>
-              </div>
-              <h3 class="blog-title">
-                <a href="blog/向前还是向后.html" class="blog-link">
-                  向前，还是向后：AI 时代的人类分野，以及文明的终极方向
-                </a>
-              </h3>
-              <p class="blog-excerpt">
-                有人向前探索智能的边界，有人向后寻找生命的本源。两条看似相反的道路，或许通向同一个终极问题：文明的方向在哪里？
-              </p>
-              <div class="blog-tags">
-                <span class="blog-tag">AI</span>
-                <span class="blog-tag">Philosophy</span>
-                <span class="blog-tag">Civilization</span>
-              </div>
-              <a href="blog/向前还是向后.html" class="read-more-btn">
-                <i class="fas fa-arrow-right"></i> Read More
+            </li>
+            <li class="blog-list-item">
+              <a href="blog/向前还是向后.html" class="blog-link">
+                <span class="blog-list-index">03</span>
+                <time class="blog-list-date" datetime="2026-11-02">Nov 02, 2026</time>
+                <span class="blog-list-title">向前，还是向后：AI 时代的人类分野，以及文明的终极方向</span>
               </a>
-            </article>
-
-            <!-- Latest Blog Post -->
-            <article class="blog-post">
-              <div class="blog-meta">
-                <span class="blog-date">Jul 2026</span>
-                <span class="blog-category">Opinion</span>
-              </div>
-              <h3 class="blog-title">
-                <a href="blog/AI让我们思考更多还是更少.html" class="blog-link">
-                  AI 让我们思考得更多了，还是更少了？
-                </a>
-              </h3>
-              <p class="blog-excerpt">
-                当AI工具越来越深入开发流程，我们是在更深入地思考，还是在逐渐失去对代码的掌控感？
-              </p>
-              <div class="blog-tags">
-                <span class="blog-tag">AI</span>
-                <span class="blog-tag">Development</span>
-              </div>
-              <a href="blog/AI让我们思考更多还是更少.html" class="read-more-btn">
-                <i class="fas fa-arrow-right"></i> Read More
+            </li>
+            <li class="blog-list-item">
+              <a href="blog/AI让我们思考更多还是更少.html" class="blog-link">
+                <span class="blog-list-index">04</span>
+                <time class="blog-list-date" datetime="2026-07-19">Jul 19, 2026</time>
+                <span class="blog-list-title">AI 让我们思考得更多了，还是更少了？</span>
               </a>
-            </article>
-
-            <!-- First Blog Post -->
-            <article class="blog-post">
-              <div class="blog-meta">
-                <span class="blog-date">Apr 2026</span>
-                <span class="blog-category">Introduction</span>
-              </div>
-              <h3 class="blog-title">
-                <a href="blog/hello-world.html" class="blog-link">
-                  Hello, World!
-                </a>
-              </h3>
-              <p class="blog-excerpt">
-                Every programmer's first program. Technical notes on autonomous systems, sensor fusion, and robotics.
-              </p>
-              <div class="blog-tags">
-                <span class="blog-tag">First Post</span>
-              </div>
-              <a href="blog/hello-world.html" class="read-more-btn">
-                <i class="fas fa-arrow-right"></i> Read More
+            </li>
+            <li class="blog-list-item">
+              <a href="blog/hello-world.html" class="blog-link">
+                <span class="blog-list-index">05</span>
+                <time class="blog-list-date" datetime="2026-04-10">Apr 10, 2026</time>
+                <span class="blog-list-title">Hello, World!</span>
               </a>
-            </article>
-          </div>
-        </div>
+            </li>
+          </ol>
+        </details>
       </div>
     </section>
 
